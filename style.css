@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+:root {
+    --main-color: hsl(230, 17%, 14%);
+    --top-bg-color: hsl(232, 19%, 15%);
+    --card-bg: hsl(228, 28%, 20%);
+    --hover-card: hsl(229, 25%, 26%);
+    --text-color: hsl(0, 0%, 100%);
+    --text2-color: hsl(228, 34%, 66%);
+    --facebook: hsl(195, 100%, 50%);
+    --twitter: hsl(203, 89%, 53%);
+    --instagram: hsl(329, 70%, 58%);
+    --youtube: hsl(348, 97%, 39%);
+    --green: hsl(163, 72%, 41%);
+    --red: hsl(356, 69%, 56%);
+}
+[data-theme="light"] {
+    --main-color: hsl(0, 0%, 100%);
+    --top-bg-color: hsl(225, 100%, 98%);
+    --card-bg: hsl(227, 47%, 96%);
+    --hover-card: hsl(229, 73%, 93%);
+    --text-color: hsl(230, 17%, 14%);
+    --text2-color: hsl(228, 12%, 44%);
+}
+body {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+/* Switcher */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+em {
+    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.theme-switch {
+    display: inline-block;
+    height: 30px;
+    position: relative;
+    width: 70px;
+}
+.theme-switch input {
+    display:none;
+}
+.slider {
+    background: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+.slider:before {
+    background-color: var(--main-color);
+    bottom: 2px;
+    content: "";
+    height: 26px;
+    right: 5px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+input:checked + .slider {
+    background: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+input:checked + .slider:before {
+    transform: translateX(-34px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Begin Of Header */
+header {
+    background-color: var(--top-bg-color);
+    height: 200px;
+    margin: 0;
+    padding: 20px 0;
+}
+header h1 {
+    margin-bottom: 0;
+    font-size: 30px;
+    margin-top: 0;
+}
+header span {
+    color: var(--text2-color);
+    font-size: 14px;
+    font-weight: 700;
+}
+header .switcher {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+}
+
+/* Begin Of OverDivs */
+.over {
+    margin-top: -100px;
+}
+.over .div {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: solid 3px var(--facebook);
+}
+.over .div:hover {
+    background-color: var(--hover-card);
+    cursor: pointer;
+}
+.over .div:nth-child(2) {
+    border-top: solid 3px var(--twitter);
+}
+.over .div:nth-child(3) {
+    border-top: solid 3px var(--instagram);
+}
+.over .div:nth-child(4) {
+    border-top: solid 3px var(--youtube);
+}
+.over .div .name {
+    display: block;
+    color: var(--text2-dark);
+    margin-bottom: 20px;
+}
+.over .div .name i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+.over .div:nth-child(1) .name i {
+    color: var(--facebook);
+}
+.over .div:nth-child(2) .name i {
+    color: var(--twitter);
+}
+.over .div:nth-child(3) .name i {
+    color: var(--instagram);
+}
+.over .div:nth-child(4) .name i {
+    color: var(--youtube);
+}
+.over .div .number {
+    font-size: 50px;
+    display: block;
+    font-weight: 700;
+}
+.over .div .follows {
+    display: block;
+    color: var(--text2-color);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin-bottom: 30px;
+}
+.status {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: bold;
+}
+.down {
+    color: var(--red);
+}
+
+/* Begin Of Overview Section */
+.overview {
+    margin-top: 50px;
+}
+.overview .sub-div {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 5px;
+}
+.overview .sub-div:hover {
+    background-color: var(--hover-card);
+    cursor: pointer;
+}
+.overview .sub-div .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--text2-color);
+    font-weight: bold;
+}
+.overview .sub-div .top i {
+    font-size: 20px;
+    color: var(--facebook);
+}
+.overview .sub-div:nth-of-type(3) .top i,
+.overview .sub-div:nth-of-type(4) .top i {
+    color: var(--instagram);
+}
+.overview .sub-div:nth-of-type(5) .top i,
+.overview .sub-div:nth-of-type(6) .top i {
+    color: var(--twitter);
+}
+.overview .sub-div:nth-of-type(7) .top i,
+.overview .sub-div:nth-of-type(8) .top i {
+    color: var(--youtube);
+}
+.overview .sub-div .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.overview .sub-div .bottom span:first-of-type {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.overview .sub-div .bottom .to {
+    margin-top: 25px;
+}
+
+/* Start Media Queries */
+@media(max-width: 500px) {
+    header {
+        text-align: center;
+    }
+    .switcher {
+        position: static !important;
+        margin-top: 15px;
+    }
+    .over {
+        margin-top: -40px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media(min-width: 501px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(min-width: 1000px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
